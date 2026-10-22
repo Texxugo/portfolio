@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Texxugo Automações</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Automação de WhatsApp para pequenos negócios: atendimento automático, agendamento, atendente com IA e integrações. Resposta em segundos, 24 horas por dia.">
+<meta property="og:title" content="Texxugo Automações">
+<meta property="og:description" content="Seu WhatsApp respondendo, agendando e vendendo enquanto você trabalha.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A6B5C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A6B5C'/%3E%3Cpath d='M9 10h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8l-5 4v-4H9a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="logo" href="#inicio" aria-label="Texxugo Automações, início">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M9 10h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8l-5 4v-4H9a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z" fill="var(--surface)"/></svg>
+      </span>
+      <span class="logo__text">texxugo<span class="logo__sub">automações</span></span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn--go btn--sm" data-wa href="https://wa.me/" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Automação de WhatsApp para pequenos negócios</p>
+        <h1>Seu WhatsApp respondendo, agendando e vendendo enquanto você trabalha.</h1>
+        <p class="lead">Eu monto robôs de atendimento na API oficial do WhatsApp, ligados à sua agenda, planilha ou loja. Seu cliente recebe resposta em segundos, a qualquer hora, e você só entra na conversa quando faz diferença.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--go" data-wa href="https://wa.me/" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
+            Quero automatizar meu WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="#exemplos">Ver exemplos</a>
+        </div>
+        <ul class="hero__facts">
+          <li><strong>Resposta em segundos</strong> no lugar de horas</li>
+          <li><strong>24 horas por dia</strong> inclusive fim de semana</li>
+          <li><strong>Passa para um humano</strong> quando o cliente pede</li>
+        </ul>
+      </div>
+
+      <!-- Chat demo -->
+      <figure class="phone" aria-label="Exemplo de conversa: cliente agenda uma consulta com o robô às 22:47">
+        <div class="phone__screen">
+          <div class="chat__head">
+            <span class="chat__avatar" aria-hidden="true">CS</span>
+            <span class="chat__who">
+              <strong>Clínica Sorriso</strong>
+              <small>Conta comercial · online</small>
+            </span>
+          </div>
+          <div class="chat__body" id="chat">
+            <p class="chat__day">Hoje</p>
+
+            <div class="msg msg--out" data-step>
+              Oi, boa noite! Queria marcar uma limpeza
+              <span class="msg__meta">22:47 <span class="ticks" aria-label="lida">✓✓</span></span>
+            </div>
+
+            <div class="msg msg--in" data-step data-bot>
+              Olá! Sou a assistente virtual da Clínica Sorriso. Tenho estes horários livres para limpeza:
+              <span class="msg__meta">22:47</span>
+            </div>
+            <div class="msg__buttons" data-step aria-hidden="true">
+              <span>Sex 23/10 · 09:00</span>
+              <span class="is-picked">Seg 26/10 · 14:30</span>
+              <span>Ter 27/10 · 10:00</span>
+            </div>
+
+            <div class="msg msg--out" data-step>
+              Seg 26/10 · 14:30
+              <span class="msg__meta">22:48 <span class="ticks" aria-label="lida">✓✓</span></span>
+            </div>
+
+            <div class="msg msg--in" data-step data-bot>
+              Pronto, Mariana! Sua limpeza está confirmada para <strong>segunda, 26/10, às 14:30</strong>. Vou te lembrar um dia antes.
+              <span class="msg__meta">22:48</span>
+            </div>
+
+            <p class="chat__event" data-step>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2V3h-2v2H9V3H7zm-2 7h14v9H5v-9z"/></svg>
+              Salvo no Google Agenda · lembrete para 25/10
+            </p>
+
+            <div class="typing" id="typing" hidden aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <figcaption>Demonstração. Atendimento às 22:47, sem ninguém da clínica acordado.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- DORES -->
+  <section class="section section--tint" aria-labelledby="dores-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">O que acontece hoje</p>
+        <h2 id="dores-title">Onde o atendimento manual perde clientes</h2>
+      </header>
+      <ul class="pains">
+        <li class="reveal">
+          <span class="pains__time">23:12</span>
+          <h3>Pergunta de preço fora do horário</h3>
+          <p>O cliente manda mensagem à noite, ninguém responde, e de manhã ele já fechou com o concorrente.</p>
+        </li>
+        <li class="reveal">
+          <span class="pains__time">todo dia</span>
+          <h3>As mesmas 10 perguntas</h3>
+          <p>Endereço, horário, formas de pagamento, prazo. Você digita tudo de novo, várias vezes por dia.</p>
+        </li>
+        <li class="reveal">
+          <span class="pains__time">segunda</span>
+          <h3>Cliente que esquece e falta</h3>
+          <p>Agenda no papel ou na memória, sem lembrete. O horário fica vazio e ninguém avisa.</p>
+        </li>
+        <li class="reveal">
+          <span class="pains__time">3 dias depois</span>
+          <h3>Orçamento sem retorno</h3>
+          <p>Você manda o orçamento, o cliente some, e falta tempo para chamar de novo no momento certo.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section" id="servicos" aria-labelledby="servicos-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Serviços</p>
+        <h2 id="servicos-title">O que eu posso automatizar no seu WhatsApp</h2>
+        <p class="section__lead">Cada projeto junta as peças que fazem sentido para o seu negócio. Você não paga por recurso que não vai usar.</p>
+      </header>
+      <div class="services">
+        <article class="service reveal">
+          <h3>Atendimento automático</h3>
+          <p>Menu com as opções do seu negócio e respostas prontas para as dúvidas mais comuns. O cliente resolve sozinho o que é simples.</p>
+          <p class="tags"><span>Lojas</span><span>Serviços</span><span>Delivery</span></p>
+        </article>
+        <article class="service reveal">
+          <h3>Agendamento e lembretes</h3>
+          <p>O cliente escolhe o horário pelo WhatsApp, o robô grava na sua agenda e manda lembrete antes. Menos faltas, menos ligação.</p>
+          <p class="tags"><span>Clínicas</span><span>Salões</span><span>Consultórios</span></p>
+        </article>
+        <article class="service reveal">
+          <h3>Atendente com IA</h3>
+          <p>Responde em linguagem natural usando as informações do seu negócio: preços, regras, cardápio. Quando não sabe, chama você.</p>
+          <p class="tags"><span>Dúvidas variadas</span><span>Pré-venda</span></p>
+        </article>
+        <article class="service reveal">
+          <h3>Catálogo e pedidos</h3>
+          <p>Mostra produtos, monta o pedido, calcula o total e envia para a sua equipe já organizado, com endereço e forma de pagamento.</p>
+          <p class="tags"><span>Restaurantes</span><span>Lojas</span></p>
+        </article>
+        <article class="service reveal">
+          <h3>Retorno de orçamentos</h3>
+          <p>Mensagens de acompanhamento no tempo certo para quem pediu orçamento e não respondeu, com opção de parar a qualquer momento.</p>
+          <p class="tags"><span>Prestadores</span><span>Imobiliárias</span></p>
+        </article>
+        <article class="service reveal">
+          <h3>Integrações</h3>
+          <p>Liga o WhatsApp ao que você já usa: Google Agenda, Google Planilhas, CRM, sistema da loja ou um painel feito para você.</p>
+          <p class="tags"><span>Google</span><span>CRM</span><span>APIs</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section section--tint" id="como-funciona" aria-labelledby="como-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Como funciona</p>
+        <h2 id="como-title">Do primeiro papo ao robô no ar</h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal">
+          <span class="steps__when">Dia 1</span>
+          <h3>Conversa de diagnóstico</h3>
+          <p>30 minutos, sem custo. Entendo como seus clientes chegam e o que mais toma o seu tempo no WhatsApp.</p>
+        </li>
+        <li class="reveal">
+          <span class="steps__when">Até 3 dias</span>
+          <h3>Proposta com o fluxo desenhado</h3>
+          <p>Você recebe o desenho da conversa, o que será integrado, o prazo e o preço fechado. Ajustamos antes de começar.</p>
+        </li>
+        <li class="reveal">
+          <span class="steps__when">1 a 2 semanas</span>
+          <h3>Construção e testes</h3>
+          <p>Monto tudo e testamos juntos em um número de teste. Você vê as conversas reais antes de liberar para os clientes.</p>
+        </li>
+        <li class="reveal">
+          <span class="steps__when">30 dias de suporte</span>
+          <h3>Entrega e acompanhamento</h3>
+          <p>Coloco no ar no seu número, explico como mudar textos e horários, e acompanho de perto o primeiro mês.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- EXEMPLOS -->
+  <section class="section" id="exemplos" aria-labelledby="exemplos-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Exemplos</p>
+        <h2 id="exemplos-title">Fluxos que eu construo</h2>
+        <p class="section__lead">Projetos de demonstração para tipos de negócio comuns. Cada um mostra o caminho da conversa, da primeira mensagem até o resultado.</p>
+      </header>
+      <div class="cases">
+        <article class="case reveal">
+          <p class="case__kind">Clínica e consultório</p>
+          <h3>Agenda que se preenche sozinha</h3>
+          <ol class="flow">
+            <li>Cliente manda “oi”</li>
+            <li>Escolhe o procedimento</li>
+            <li>Vê horários livres</li>
+            <li>Confirma</li>
+            <li class="flow__end">Salvo na agenda + lembrete 24h antes</li>
+          </ol>
+        </article>
+        <article class="case reveal">
+          <p class="case__kind">Restaurante e delivery</p>
+          <h3>Pedido completo sem digitar</h3>
+          <ol class="flow">
+            <li>Cliente pede o cardápio</li>
+            <li>Escolhe itens e adicionais</li>
+            <li>Informa endereço</li>
+            <li>Escolhe Pix ou cartão</li>
+            <li class="flow__end">Pedido chega pronto para a cozinha</li>
+          </ol>
+        </article>
+        <article class="case reveal">
+          <p class="case__kind">Loja online</p>
+          <h3>“Cadê meu pedido?” resolvido</h3>
+          <ol class="flow">
+            <li>Cliente pergunta do pedido</li>
+            <li>Informa o número ou CPF</li>
+            <li>Robô consulta a loja</li>
+            <li class="flow__end">Status e rastreio na hora</li>
+          </ol>
+        </article>
+        <article class="case reveal">
+          <p class="case__kind">Imobiliária e corretor</p>
+          <h3>Só chega cliente qualificado</h3>
+          <ol class="flow">
+            <li>Interessado chega pelo anúncio</li>
+            <li>Robô pergunta bairro, faixa de preço e prazo</li>
+            <li>Registra na planilha</li>
+            <li class="flow__end">Corretor recebe o resumo e assume</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section class="section section--tint" id="planos" aria-labelledby="planos-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Planos</p>
+        <h2 id="planos-title">Preço fechado, sem surpresa</h2>
+        <p class="section__lead">Um valor para construir e uma mensalidade para manter tudo funcionando, com ajustes e suporte.</p>
+      </header>
+      <div class="plans">
+        <article class="plan reveal">
+          <h3>Essencial</h3>
+          <p class="plan__for">Para começar a responder rápido</p>
+          <p class="plan__price"><small>a partir de</small> R$ 690 <small>implantação</small></p>
+          <p class="plan__monthly">+ R$ 149/mês de manutenção</p>
+          <ul>
+            <li>Menu de atendimento</li>
+            <li>Até 15 respostas automáticas</li>
+            <li>Mensagem fora do horário</li>
+            <li>Transferência para humano</li>
+          </ul>
+          <a class="btn btn--ghost" data-wa data-plan="Essencial" href="https://wa.me/" target="_blank" rel="noopener">Quero o Essencial</a>
+        </article>
+        <article class="plan plan--main reveal">
+          <p class="plan__badge">Mais pedido</p>
+          <h3>Profissional</h3>
+          <p class="plan__for">Para agendar e vender pelo WhatsApp</p>
+          <p class="plan__price"><small>a partir de</small> R$ 1.490 <small>implantação</small></p>
+          <p class="plan__monthly">+ R$ 249/mês de manutenção</p>
+          <ul>
+            <li>Tudo do Essencial</li>
+            <li>Agendamento ou pedidos</li>
+            <li>Lembretes automáticos</li>
+            <li>1 integração (Agenda, Planilhas ou CRM)</li>
+            <li>Relatório mensal de conversas</li>
+          </ul>
+          <a class="btn btn--go" data-wa data-plan="Profissional" href="https://wa.me/" target="_blank" rel="noopener">Quero o Profissional</a>
+        </article>
+        <article class="plan reveal">
+          <h3>Sob medida</h3>
+          <p class="plan__for">Para operações com mais volume</p>
+          <p class="plan__price"><small>valor</small> Sob consulta</p>
+          <p class="plan__monthly">Mensalidade conforme o projeto</p>
+          <ul>
+            <li>Atendente com IA</li>
+            <li>Várias integrações</li>
+            <li>Vários atendentes no mesmo número</li>
+            <li>Painel com métricas</li>
+          </ul>
+          <a class="btn btn--ghost" data-wa data-plan="Sob medida" href="https://wa.me/" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+      </div>
+      <p class="note">As conversas pela API oficial do WhatsApp têm uma tarifa cobrada pela Meta, à parte. Eu mostro a estimativa para o seu volume antes de fechar.</p>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre" aria-labelledby="sobre-title">
+    <div class="wrap about">
+      <div class="about__mark" aria-hidden="true">tx</div>
+      <div class="about__text">
+        <p class="eyebrow">Quem faz</p>
+        <h2 id="sobre-title">Atendimento direto com quem constrói</h2>
+        <p>Sou desenvolvedor e trabalho com automação de atendimento para pequenos negócios. Você fala comigo do diagnóstico até a entrega, sem intermediário e sem pacote genérico.</p>
+        <p>Meu foco é que o robô pareça parte do seu negócio: fala do seu jeito, conhece suas regras e sabe a hora de chamar uma pessoa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--tint" id="duvidas" aria-labelledby="duvidas-title">
+    <div class="wrap faq">
+      <header class="section__head">
+        <p class="eyebrow">Dúvidas</p>
+        <h2 id="duvidas-title">Perguntas frequentes</h2>
+      </header>
+      <div class="faq__list">
+        <details name="faq" open>
+          <summary>Preciso trocar meu número de WhatsApp?</summary>
+          <p>Não. Dá para usar o número que seus clientes já conhecem. Ele passa a funcionar pela API oficial, e eu cuido da configuração com você.</p>
+        </details>
+        <details name="faq">
+          <summary>Meu número corre risco de ser bloqueado?</summary>
+          <p>Eu trabalho com a API oficial do WhatsApp e sigo as regras da Meta: mensagens só para quem falou com você ou aceitou receber, e sempre com opção de sair. Não faço disparo em massa para listas compradas.</p>
+        </details>
+        <details name="faq">
+          <summary>O robô substitui meu atendente?</summary>
+          <p>Ele tira do caminho as tarefas repetitivas. Quando o cliente pede uma pessoa, ou o assunto foge do roteiro, a conversa vai para você ou sua equipe com o histórico completo.</p>
+        </details>
+        <details name="faq">
+          <summary>Quanto tempo leva para ficar pronto?</summary>
+          <p>Um projeto Essencial costuma ficar pronto em cerca de uma semana. Projetos com agendamento, pedidos ou integrações levam de uma a duas semanas, dependendo do que precisa ser ligado.</p>
+        </details>
+        <details name="faq">
+          <summary>Quanto custa a API do WhatsApp?</summary>
+          <p>A Meta cobra por conversa, e o valor muda conforme o tipo de mensagem. Para muitos pequenos negócios, o custo mensal é baixo. Eu faço a estimativa com base no seu volume antes de você fechar.</p>
+        </details>
+        <details name="faq">
+          <summary>Consigo mudar os textos depois?</summary>
+          <p>Sim. Ajustes de texto, horários e preços entram na mensalidade. Mudanças grandes no fluxo são orçadas à parte, com preço combinado antes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section contact" id="contato" aria-labelledby="contato-title">
+    <div class="wrap contact__grid">
+      <div class="contact__copy">
+        <p class="eyebrow">Contato</p>
+        <h2 id="contato-title">Me conte sobre o seu negócio</h2>
+        <p>Preencha e toque em enviar. A mensagem abre pronta no WhatsApp, é só mandar. Eu respondo no mesmo dia útil.</p>
+        <p class="contact__number">WhatsApp: <span id="wa-number" class="mono">+55 (00) 00000-0000</span></p>
+      </div>
+      <form class="form" id="lead-form" novalidate>
+        <div class="field">
+          <label for="f-nome">Seu nome</label>
+          <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Ex.: Mariana Souza">
+        </div>
+        <div class="field">
+          <label for="f-negocio">Tipo de negócio</label>
+          <select id="f-negocio" name="negocio">
+            <option>Clínica ou consultório</option>
+            <option>Salão ou estética</option>
+            <option>Restaurante ou delivery</option>
+            <option>Loja física ou online</option>
+            <option>Imobiliária ou corretor</option>
+            <option>Prestador de serviço</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-objetivo">O que você quer automatizar?</label>
+          <textarea id="f-objetivo" name="objetivo" rows="4" placeholder="Ex.: responder preços fora do horário e marcar horários"></textarea>
+        </div>
+        <p class="form__error" id="form-error" hidden>Escreva seu nome para eu saber com quem estou falando.</p>
+        <button class="btn btn--go" type="submit">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
+          Enviar pelo WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p><strong>texxugo</strong> automações · Automação de WhatsApp para pequenos negócios</p>
+    <p>© <span id="year">2026</span> · Feito no Brasil</p>
+  </div>
+</footer>
+
+<a class="fab" data-wa href="https://wa.me/" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
