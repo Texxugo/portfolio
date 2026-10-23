@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contato · Fixallis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Conte sobre o seu negócio e receba uma proposta de automação de WhatsApp. A mensagem abre pronta no WhatsApp.">
+<meta property="og:title" content="Contato · Fixallis">
+<meta property="og:description" content="Seu WhatsApp respondendo, agendando e vendendo enquanto você trabalha.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#016ECB">
+<link rel="icon" type="image/svg+xml" href="assets/fixallis-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="logo" href="index.html" aria-label="Fixallis, início">
+      <span class="logo__mark" aria-hidden="true"><img src="assets/fixallis-mark.svg" alt="" width="22" height="35"></span>
+      <span class="logo__text">Fixallis</span>
+    </a>
+    <nav class="nav" aria-label="Páginas">
+      <a href="servicos.html">Serviços</a>
+      <a href="exemplos.html">Exemplos</a>
+      <a href="planos.html">Planos</a>
+      <a href="contato.html" aria-current="page">Contato</a>
+    </nav>
+    <a class="btn btn--go btn--sm" data-wa href="https://wa.me/" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- CONTATO -->
+  <section class="section contact" id="contato" aria-labelledby="contato-title">
+    <div class="wrap contact__grid">
+      <div class="contact__copy">
+        <p class="eyebrow">Contato</p>
+        <h1 id="contato-title">Me conte sobre o seu negócio</h1>
+        <p>Preencha e toque em enviar. A mensagem abre pronta no WhatsApp, é só mandar. Eu respondo no mesmo dia útil.</p>
+        <p class="contact__number">WhatsApp: <span id="wa-number" class="mono">+55 (00) 00000-0000</span></p>
+      </div>
+      <form class="form" id="lead-form" novalidate>
+        <div class="field">
+          <label for="f-nome">Seu nome</label>
+          <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Ex.: Mariana Souza">
+        </div>
+        <div class="field">
+          <label for="f-negocio">Tipo de negócio</label>
+          <select id="f-negocio" name="negocio">
+            <option>Clínica ou consultório</option>
+            <option>Salão ou estética</option>
+            <option>Restaurante ou delivery</option>
+            <option>Loja física ou online</option>
+            <option>Imobiliária ou corretor</option>
+            <option>Prestador de serviço</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-objetivo">O que você quer automatizar?</label>
+          <textarea id="f-objetivo" name="objetivo" rows="4" placeholder="Ex.: responder preços fora do horário e marcar horários"></textarea>
+        </div>
+        <p class="form__error" id="form-error" hidden>Escreva seu nome para eu saber com quem estou falando.</p>
+        <button class="btn btn--go" type="submit">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
+          Enviar pelo WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <ul class="footer__nav" aria-label="Rodapé">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="exemplos.html">Exemplos</a></li>
+      <li><a href="planos.html">Planos</a></li>
+      <li><a href="planos.html#duvidas">Dúvidas</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <p class="footer__brand"><img src="assets/fixallis-mark.svg" alt="" width="12" height="19"><span><strong>Fixallis</strong> · Automação de WhatsApp para pequenos negócios</span></p>
+    <p>© <span id="year">2026</span> · Feito no Brasil</p>
+  </div>
+</footer>
+
+<a class="fab" data-wa href="https://wa.me/" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

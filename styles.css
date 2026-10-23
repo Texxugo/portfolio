@@ -186,8 +186,9 @@ a { color: var(--brand); }
 }
 .topbar__inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 24px;
+  column-gap: 24px;
   min-height: var(--header-h);
 }
 .logo {
@@ -207,13 +208,45 @@ a { color: var(--brand); }
   letter-spacing: -0.02em;
   color: var(--ink);
 }
-.nav { display: none; gap: 24px; }
-.nav a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: .9375rem; }
+/* Nav: second row on phones, inline on desktop */
+.nav {
+  order: 3;
+  flex-basis: 100%;
+  display: flex;
+  gap: 4px;
+  margin-inline: -10px;
+  padding-bottom: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .9375rem;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
 .nav a:hover { color: var(--ink); }
-@media (min-width: 920px) { .nav { display: flex; } }
+.nav a[aria-current="page"] { color: var(--brand); background: var(--brand-soft); }
+@media (min-width: 920px) {
+  .nav { order: 0; flex-basis: auto; margin: 0; padding: 0; }
+}
 @media (max-width: 420px) { .topbar .btn--sm { padding-inline: 12px; font-size: .875rem; } }
 
-section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
+section[id] { scroll-margin-top: 120px; }
+@media (min-width: 920px) { section[id] { scroll-margin-top: calc(var(--header-h) + 8px); } }
+
+/* Page heading on inner pages */
+.page-head { padding-block: 48px 0; }
+@media (min-width: 900px) { .page-head { padding-block: 72px 0; } }
+.page-head__inner { display: grid; gap: 16px; }
+.page-head__inner > * { max-width: 720px; }
+.page-head h1 { font-size: var(--step-4); }
+.page-head + .section { padding-top: 48px; }
+@media (min-width: 900px) { .page-head + .section { padding-top: 56px; } }
 
 /* Hero */
 .hero { padding-block: 48px 64px; }
@@ -628,6 +661,40 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .faq details[open] summary::after { rotate: 45deg; }
 .faq details p { padding: 0 0 22px; color: var(--muted); max-width: 66ch; }
 
+/* Home: links to the other pages */
+.pages { display: grid; gap: 16px; }
+@media (min-width: 820px) { .pages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
+.page-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.page-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+.page-card p { color: var(--muted); }
+.page-card__kind { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.page-card__go { margin-top: 6px; font-weight: 600; color: var(--brand); }
+
+/* Next step band at the end of inner pages */
+.next { padding-block: 56px; border-top: 1px solid var(--line); }
+.next__inner { display: grid; gap: 20px; align-items: center; }
+@media (min-width: 820px) { .next__inner { grid-template-columns: minmax(0, 1fr) auto; gap: 40px; } }
+.next__copy { display: grid; gap: 10px; }
+.next__copy h2 { font-size: var(--step-2); }
+.next__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Button on the blue band */
+.btn--light { background: var(--go-ink); color: var(--go); }
+.btn--light:hover { background: color-mix(in oklab, var(--go-ink) 90%, var(--go)); }
+.cta-band .contact__copy { gap: 18px; }
+.cta-band .contact__copy .btn { justify-self: start; }
+
 /* Contact */
 .contact { background: var(--go); color: var(--go-ink); }
 .contact .eyebrow { color: var(--go-ink); opacity: .8; }
@@ -668,6 +735,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .footer strong { color: var(--ink); font-family: var(--font-display); }
 .footer__brand { display: inline-flex; align-items: center; gap: 8px; }
 .footer__brand img { width: 12px; height: 19px; }
+.footer__nav { display: flex; flex-wrap: wrap; gap: 6px 20px; flex-basis: 100%; margin: 0 0 8px; padding: 0; list-style: none; }
+.footer__nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+.footer__nav a:hover { color: var(--brand); }
 
 /* Floating WhatsApp button */
 .fab {
