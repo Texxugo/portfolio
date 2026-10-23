@@ -1,23 +1,24 @@
-/* Layout: the page reads like a business chat — a live conversation in the hero,
+/* Fixallis — accent is the logo blue (#016ECB).
+   Layout: the page reads like a business chat — a live conversation in the hero,
    then calm alternating bands. Bold moment = the phone demo; the rest stays quiet. */
 :root {
-  --bg: #F2F5F3;
-  --tint: #E6EEEA;
+  --bg: #F3F6FA;
+  --tint: #E8EEF6;
   --surface: #FFFFFF;
-  --ink: #0E2621;
-  --muted: #4A605A;
-  --line: #D3DEDA;
-  --brand: #0A6B5C;
-  --brand-soft: #D6EAE3;
-  --go: #25D366;
-  --go-ink: #052E1B;
-  --frame: #0E2621;
-  --chat-bg: #E8EEE8;
+  --ink: #0B1B2E;
+  --muted: #4A5A6E;
+  --line: #D4DDE8;
+  --brand: #0164C2;
+  --brand-soft: #DCEAF9;
+  --go: #016ECB;
+  --go-ink: #FFFFFF;
+  --frame: #0B1B2E;
+  --chat-bg: #E9EEF3;
   --bubble-in: #FFFFFF;
   --bubble-out: #D9FDD3;
   --tick: #2B9ED8;
   --error: #B4380B;
-  --shadow: 0 1px 2px rgb(14 38 33 / .06), 0 8px 24px rgb(14 38 33 / .08);
+  --shadow: 0 1px 2px rgb(11 27 46 / .06), 0 8px 24px rgb(11 27 46 / .08);
 
   --font-display: "Funnel Display", "Segoe UI", system-ui, sans-serif;
   --font-body: "Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -37,19 +38,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0B1613;
-    --tint: #0F1D19;
-    --surface: #13231F;
-    --ink: #E3EDE9;
-    --muted: #9AB0A9;
-    --line: #22372F;
-    --brand: #5ED1A9;
-    --brand-soft: #173329;
-    --go: #25D366;
-    --go-ink: #052E1B;
+    --bg: #0A121C;
+    --tint: #0E1824;
+    --surface: #121F2E;
+    --ink: #E3EBF5;
+    --muted: #9AAABD;
+    --line: #213145;
+    --brand: #5AA8F2;
+    --brand-soft: #10263D;
+    --go: #016ECB;
+    --go-ink: #FFFFFF;
     --frame: #000000;
-    --chat-bg: #0B1411;
-    --bubble-in: #1D2D28;
+    --chat-bg: #0A1119;
+    --bubble-in: #1B2938;
     --bubble-out: #0D5B4A;
     --tick: #53BDEB;
     --error: #FB923C;
@@ -58,19 +59,19 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0B1613;
-  --tint: #0F1D19;
-  --surface: #13231F;
-  --ink: #E3EDE9;
-  --muted: #9AB0A9;
-  --line: #22372F;
-  --brand: #5ED1A9;
-  --brand-soft: #173329;
-  --go: #25D366;
-  --go-ink: #052E1B;
+  --bg: #0A121C;
+  --tint: #0E1824;
+  --surface: #121F2E;
+  --ink: #E3EBF5;
+  --muted: #9AAABD;
+  --line: #213145;
+  --brand: #5AA8F2;
+  --brand-soft: #10263D;
+  --go: #016ECB;
+  --go-ink: #FFFFFF;
   --frame: #000000;
-  --chat-bg: #0B1411;
-  --bubble-in: #1D2D28;
+  --chat-bg: #0A1119;
+  --bubble-in: #1B2938;
   --bubble-out: #0D5B4A;
   --tick: #53BDEB;
   --error: #FB923C;
@@ -197,24 +198,14 @@ a { color: var(--brand); }
   text-decoration: none;
   margin-right: auto;
 }
-.logo__mark { display: inline-flex; }
+.logo__mark { display: inline-flex; width: 22px; height: 35px; }
+.logo__mark img { width: 100%; height: 100%; }
 .logo__text {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   letter-spacing: -0.02em;
   color: var(--ink);
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-.logo__sub {
-  font-family: var(--font-mono);
-  font-size: .6875rem;
-  font-weight: 400;
-  letter-spacing: .08em;
-  color: var(--muted);
-  margin-top: 3px;
 }
 .nav { display: none; gap: 24px; }
 .nav a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: .9375rem; }
@@ -276,15 +267,15 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
   align-items: center;
   gap: 10px;
   padding: 18px 14px 12px;
-  background: var(--brand);
-  color: var(--surface);
+  background: var(--go);
+  color: var(--go-ink);
 }
 .chat__avatar {
   width: 36px; height: 36px;
   border-radius: 50%;
   display: grid; place-items: center;
-  background: var(--surface);
-  color: var(--brand);
+  background: var(--go-ink);
+  color: var(--go);
   font: 700 .8125rem/1 var(--font-display);
 }
 .chat__who { display: flex; flex-direction: column; line-height: 1.25; }
@@ -605,12 +596,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
   width: 160px; height: 160px;
   border-radius: 50%;
   background: var(--brand-soft);
-  color: var(--brand);
   display: grid; place-items: center;
-  font: 700 3.5rem/1 var(--font-display);
-  letter-spacing: -0.04em;
 }
-@media (min-width: 760px) { .about__mark { width: 220px; height: 220px; font-size: 4.5rem; } }
+.about__mark img { width: 34%; height: auto; }
+@media (min-width: 760px) { .about__mark { width: 220px; height: 220px; } }
 .about__text { display: grid; gap: 14px; max-width: 62ch; }
 .about__text p:not(.eyebrow) { color: var(--muted); font-size: var(--step-1); }
 
@@ -640,8 +629,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .faq details p { padding: 0 0 22px; color: var(--muted); max-width: 66ch; }
 
 /* Contact */
-.contact { background: var(--brand); color: var(--surface); }
-.contact .eyebrow { color: var(--brand-soft); }
+.contact { background: var(--go); color: var(--go-ink); }
+.contact .eyebrow { color: var(--go-ink); opacity: .8; }
 .contact__grid { display: grid; gap: 40px; }
 @media (min-width: 900px) { .contact__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; } }
 .contact__copy { display: grid; gap: 14px; }
@@ -677,6 +666,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .footer { padding-block: 32px calc(32px + 72px); border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
 .footer__inner { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
 .footer strong { color: var(--ink); font-family: var(--font-display); }
+.footer__brand { display: inline-flex; align-items: center; gap: 8px; }
+.footer__brand img { width: 12px; height: 19px; }
 
 /* Floating WhatsApp button */
 .fab {

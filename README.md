@@ -1,4 +1,4 @@
-# Texxugo Automações
+# Fixallis
 
 Site de uma página para vender serviços de automação de WhatsApp.
 
@@ -6,6 +6,7 @@ Arquivos:
 
 - `index.html` — conteúdo do site (textos, serviços, planos, perguntas)
 - `styles.css` — visual (cores, fontes, tema claro e escuro)
+- `assets/fixallis-mark.svg` — logo em vetor (azul `#016ECB`, fundo transparente)
 - `script.js` — número do WhatsApp, mensagem padrão, formulário e a animação do chat
 
 ## Antes de publicar
