@@ -57,6 +57,8 @@ form?.nome.addEventListener('input', () => { formError.hidden = true; });
 // ===== Demonstração do chat =====
 // Sem JavaScript, o HTML mostra a primeira conversa completa.
 // Com JavaScript, quatro conversas se revezam, mensagem por mensagem.
+// Se o aparelho pede menos animação, as mensagens chegam do mesmo jeito,
+// só sem os movimentos (o styles.css desliga os efeitos).
 // Para mudar os exemplos, edite CENAS abaixo.
 const CENAS = [
   {
@@ -165,7 +167,7 @@ const ICONES = {
   let paused = true;
 
   // A animação fica parada enquanto o celular está fora da tela ou a aba está escondida
-  let visible = false;
+  let visible = true;
   const sync = () => { paused = !visible || document.hidden; };
   new IntersectionObserver((e) => { visible = e.some((x) => x.isIntersecting); sync(); }, { threshold: 0.3 }).observe(phone);
   document.addEventListener('visibilitychange', sync);
@@ -189,7 +191,7 @@ const ICONES = {
     </span>`;
   const composerText = composer.querySelector('.composer__text');
   const composerBtn = composer.querySelector('.composer__btn');
-  if (!reduce) phone.querySelector('.phone__screen').append(composer);
+  phone.querySelector('.phone__screen').append(composer);
   const clearComposer = () => {
     composerText.textContent = '';
     composer.classList.remove('has-text');
@@ -275,24 +277,6 @@ const ICONES = {
     chat.replaceChildren(el('p', 'chat__day', 'Hoje'));
   }
 
-  // Sem animação: mostra a conversa inteira de uma vez
-  function renderStatic(i) {
-    setScene(i);
-    CENAS[i].passos.forEach((p) => {
-      if (p.cliente) chat.append(bubbleOut(p.cliente, p.hora, true).m);
-      else if (p.robo) {
-        chat.append(bubbleIn(p));
-        if (p.opcoes) {
-          const box = chat.appendChild(options(p));
-          box.children[p.escolha].classList.add('is-picked');
-          chat.append(bubbleOut(p.opcoes[p.escolha], p.horaEscolha || p.hora, true).m);
-        }
-      } else if (p.sistema) chat.append(el('p', 'chat__system', p.sistema));
-      else if (p.aviso) chat.append(notice(p));
-    });
-    chat.scrollTop = 0;
-  }
-
   async function play(i) {
     const my = ++token;
     const sleep = async (ms) => {
@@ -330,7 +314,7 @@ const ICONES = {
     };
 
     try {
-      if (chat.childElementCount > 1) {
+      if (chat.childElementCount > 1 && !reduce) {
         chat.classList.add('is-leaving');
         await sleep(350);
       }
@@ -370,14 +354,7 @@ const ICONES = {
     }
   }
 
-  function start(i) {
-    if (reduce) {
-      token++;
-      renderStatic(i);
-    } else {
-      play(i);
-    }
-  }
+  const start = (i) => play(i);
 
   start(0);
 })();
