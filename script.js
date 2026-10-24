@@ -1,7 +1,7 @@
 // ===== Edite aqui =====
 const CONFIG = {
   // Seu número com DDI + DDD, só números. Ex.: 5511987654321
-  whatsapp: '5500000000000',
+  whatsapp: '5519992950124',
   // Mensagem que abre pronta quando alguém toca em "Chamar no WhatsApp"
   mensagemPadrao: 'Olá! Vi seu site e quero saber mais sobre automação de WhatsApp para o meu negócio.',
 };

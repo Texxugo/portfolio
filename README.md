@@ -20,7 +20,7 @@ O menu do topo e o rodapé se repetem em cada página. Se adicionar ou renomear 
 
 ## Antes de publicar
 
-1. Abra `script.js` e troque `whatsapp: '5500000000000'` pelo seu número (DDI + DDD + número, só dígitos).
+1. O número do WhatsApp fica em `script.js` (`whatsapp: '5519992950124'`, DDI + DDD + número, só dígitos). Se trocar, atualize também o número escrito em `contato.html`.
 2. Ajuste os preços na seção `PLANOS` do `planos.html`.
 3. Reescreva a seção `SOBRE` com a sua história.
 
