@@ -415,10 +415,85 @@ section[id] { scroll-margin-top: 120px; }
 .typing i:nth-child(3) { animation-delay: .3s; }
 @keyframes blink { 0%, 80%, 100% { opacity: .3; } 40% { opacity: 1; } }
 
-/* Messages pop in during the demo replay (JS adds .is-waiting first) */
-[data-step].is-waiting { display: none; }
-[data-step].is-shown { animation: pop .28s ease-out both; }
+/* Live demo (script.js): fixed-height chat that scrolls as messages arrive */
+.chat__body.is-live {
+  height: 440px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.chat__body.is-live::-webkit-scrollbar { display: none; }
+.chat__body.is-live > * { flex: none; animation: pop .28s ease-out both; }
 @keyframes pop { from { opacity: 0; transform: translateY(6px) scale(.98); } }
+
+.ticks.is-sent { color: var(--muted); letter-spacing: 0; }
+.msg__buttons span { transition: background-color .2s ease, transform .15s ease; }
+.msg__buttons .is-tapping { background: var(--brand-soft); transform: scale(.97); }
+.msg__author { display: block; font-size: .75rem; font-weight: 600; color: var(--brand); margin-bottom: 2px; }
+.chat__system {
+  align-self: center;
+  font-size: .75rem;
+  color: var(--muted);
+  background: var(--bubble-in);
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-block: 4px;
+}
+
+/* Order summary inside a bubble */
+.receipt {
+  display: grid;
+  gap: 3px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--chat-bg);
+  font-size: .8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.receipt > span { display: flex; justify-content: space-between; gap: 12px; }
+.receipt__total { font-weight: 700; border-top: 1px dashed var(--line); padding-top: 4px; margin-top: 2px; }
+
+/* Delivery timeline inside a bubble */
+.track { display: grid; margin-top: 8px; font-size: .8125rem; }
+.track__step { position: relative; padding: 0 0 8px 20px; }
+.track__step:last-child { padding-bottom: 0; }
+.track__step::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: .4em;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.track__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 6px; top: calc(.4em + 9px); bottom: 0;
+  width: 1px;
+  background: var(--brand);
+}
+.track__step.is-agora { font-weight: 600; color: var(--brand); }
+.track__step.is-agora::before { box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 50%, transparent); animation: ping 1.6s ease-out infinite; }
+@keyframes ping { to { box-shadow: 0 0 0 7px transparent; } }
+
+/* Example picker under the phone */
+.chat__tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.chat__tabs button {
+  min-height: 36px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font: 500 .75rem/1 var(--font-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.chat__tabs button:hover { color: var(--ink); border-color: var(--brand); }
+.chat__tabs button[aria-pressed="true"] { color: var(--brand); background: var(--brand-soft); border-color: var(--brand); }
 
 /* Sections */
 .section { padding-block: 72px; }
