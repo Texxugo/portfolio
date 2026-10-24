@@ -60,6 +60,9 @@ form?.nome.addEventListener('input', () => { formError.hidden = true; });
 // Se o aparelho pede menos animação, as mensagens chegam do mesmo jeito,
 // só sem os movimentos (o styles.css desliga os efeitos).
 // Para mudar os exemplos, edite CENAS abaixo.
+// Regras do WhatsApp para ficar fiel ao real: no máximo 3 botões por mensagem
+// e até 20 letras em cada botão. Use <br> para quebrar linha e <strong> para negrito.
+// "aviso" aparece na faixa "Nos bastidores", fora do chat: é o que o robô faz por trás.
 const CENAS = [
   {
     aba: 'Agendamento',
@@ -86,8 +89,8 @@ const CENAS = [
     passos: [
       { cliente: 'Boa noite! Quero pedir um lanche', hora: '20:14' },
       {
-        robo: 'Oi! Estes são os mais pedidos de hoje:', hora: '20:14',
-        opcoes: ['Combo Clássico · R$ 32', 'Combo Duplo · R$ 41', 'Açaí 500 ml · R$ 22'], escolha: 1, horaEscolha: '20:14',
+        robo: 'Oi! Estes são os combos mais pedidos de hoje:', hora: '20:14',
+        opcoes: ['Clássico · R$ 32', 'Duplo · R$ 41', 'Açaí 500 ml · R$ 22'], escolha: 1, horaEscolha: '20:14',
       },
       {
         robo: 'Boa escolha! Vai querer bebida?', hora: '20:14',
@@ -96,11 +99,12 @@ const CENAS = [
       { robo: 'Qual o endereço de entrega?', hora: '20:15' },
       { cliente: 'Rua das Flores, 120, apto 32', hora: '20:15' },
       {
-        robo: 'Confere o seu pedido:', hora: '20:15',
-        nota: [['Combo Duplo', '41,00'], ['Refri lata', '6,00'], ['Entrega', '5,00']], total: '52,00',
+        robo: 'Confere o seu pedido:<br><br>1x Combo Duplo: R$ 41,00<br>1x Refri lata: R$ 6,00<br>Entrega: R$ 5,00<br><strong>Total: R$ 52,00</strong>', hora: '20:15',
         opcoes: ['Pagar com Pix', 'Cartão na entrega'], escolha: 0, horaEscolha: '20:16',
       },
-      { robo: 'Pedido confirmado! O código Pix está logo abaixo. Previsão de entrega: <strong>35 minutos</strong>.', hora: '20:16' },
+      { robo: 'Aqui está o Pix copia e cola. Assim que o pagamento cair, eu confirmo:<br><span class="mono">00020126580014br.gov.bcb.pix…</span>', hora: '20:16' },
+      { aviso: 'Pix de R$ 52,00 recebido', icone: 'ok' },
+      { robo: 'Pagamento confirmado! Previsão de entrega: <strong>35 minutos</strong>.', hora: '20:17' },
       { aviso: 'Pedido enviado para a cozinha', icone: 'ok' },
     ],
   },
@@ -114,15 +118,15 @@ const CENAS = [
       { cliente: 'Oi! Cadê meu pedido? Comprei semana passada', hora: '10:32' },
       { robo: 'Oi! Me passa o número do pedido ou o CPF da compra, por favor.', hora: '10:32' },
       { cliente: 'Pedido 48213', hora: '10:33' },
+      { aviso: 'Pedido 48213 consultado no sistema da loja', icone: 'busca' },
       {
-        robo: 'Achei! Seu pedido já está a caminho:', hora: '10:33', pensando: 1600,
-        rastreio: [['Pagamento aprovado', 'feito'], ['Separado no estoque', 'feito'], ['Enviado', 'feito'], ['Saiu para entrega', 'agora']],
+        robo: 'Achei! Seu pedido já está a caminho:<br><br>✓ Pagamento aprovado<br>✓ Separado no estoque<br>✓ Enviado<br><strong>➜ Saiu para entrega</strong>', hora: '10:33', pensando: 1600,
       },
       {
         robo: 'Chega hoje até as 18h. Quer que eu avise quando for entregue?', hora: '10:33',
         opcoes: ['Sim, me avise', 'Não precisa'], escolha: 0, horaEscolha: '10:34',
       },
-      { aviso: 'Aviso de entrega ativado', icone: 'sino' },
+      { aviso: 'Aviso de entrega agendado', icone: 'sino' },
     ],
   },
   {
@@ -133,13 +137,15 @@ const CENAS = [
     descricao: 'Exemplo de conversa: atendente com IA responde sobre imóveis e passa a conversa para a corretora',
     passos: [
       { cliente: 'Vocês têm apartamento de 2 quartos perto do centro, até R$ 2 mil de aluguel?', hora: '14:05' },
+      { aviso: 'IA consultou a lista de imóveis', icone: 'busca' },
       {
         robo: 'Temos 3 opções nessa faixa! A mais perto do centro fica na Rua XV: 2 quartos, 1 vaga, <strong>R$ 1.850</strong> com condomínio. Quer agendar uma visita?',
         hora: '14:05', pensando: 1800,
       },
       { cliente: 'Quero sim, sábado de manhã', hora: '14:06' },
-      { sistema: 'Juliana, corretora, entrou na conversa' },
-      { robo: 'Oi! Aqui é a Juliana. Sábado às 10h fica bom? Já te mando a localização.', hora: '14:07', autor: 'Juliana · corretora' },
+      { robo: 'Ótimo! Vou te passar para a Juliana, nossa corretora, para combinar o horário.', hora: '14:06' },
+      { aviso: 'Conversa passada para a corretora Juliana', icone: 'pessoa' },
+      { robo: 'Oi! Aqui é a Juliana. Sábado às 10h fica bom? Já te mando a localização.', hora: '14:07', autor: 'Juliana · corretora', pensando: 1600 },
       { aviso: 'Contato salvo na planilha · bairro, preço e visita', icone: 'planilha' },
     ],
   },
@@ -149,6 +155,8 @@ const ICONES = {
   agenda: 'M7 3v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2V3h-2v2H9V3H7zm-2 7h14v9H5v-9z',
   ok: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z',
   sino: 'M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z',
+  busca: 'M10 4a6 6 0 1 0 3.7 10.7l4.8 4.8 1.4-1.4-4.8-4.8A6 6 0 0 0 10 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z',
+  pessoa: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z',
   planilha: 'M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1 5v4h6V9H5zm8 0v4h6V9h-6zm-8 6v3h6v-3H5zm8 0v3h6v-3h-6z',
 };
 
@@ -232,19 +240,8 @@ const ICONES = {
 
   function bubbleIn(p) {
     const m = el('div', 'msg msg--in');
-    if (p.autor) m.append(el('span', 'msg__author', p.autor));
+    if (p.autor) m.append(el('strong', 'msg__author', `${p.autor}:`));
     m.append(el('span', null, p.robo));
-    if (p.nota) {
-      const r = el('span', 'receipt');
-      p.nota.forEach(([item, valor]) => r.append(el('span', null, `<span>${item}</span><span>R$ ${valor}</span>`)));
-      r.append(el('span', 'receipt__total', `<span>Total</span><span>R$ ${p.total}</span>`));
-      m.append(r);
-    }
-    if (p.rastreio) {
-      const t = el('span', 'track');
-      p.rastreio.forEach(([etapa, estado]) => t.append(el('span', `track__step is-${estado}`, etapa)));
-      m.append(t);
-    }
     m.append(el('span', 'msg__meta', p.hora));
     return m;
   }
@@ -255,17 +252,29 @@ const ICONES = {
     return box;
   }
 
-  const notice = (p) => el('p', 'chat__event', `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONES[p.icone]}"/></svg>${p.aviso}`);
-
   const replay = (node, cls) => {
     node.classList.remove(cls);
     void node.offsetWidth; // reinicia a animação
     node.classList.add(cls);
   };
 
+  // Faixa "Nos bastidores" abaixo do celular
+  const backstage = phone.querySelector('.backstage__item');
+  const showBackstage = (p) => {
+    backstage.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONES[p.icone]}"/></svg>${p.aviso}`;
+    backstage.classList.remove('is-empty');
+    replay(backstage, 'is-new');
+  };
+  const clearBackstage = () => {
+    backstage.textContent = 'o que o robô faz por trás aparece aqui';
+    backstage.classList.add('is-empty');
+    backstage.classList.remove('is-new');
+  };
+
   function setScene(i) {
     const c = CENAS[i];
     clearComposer();
+    clearBackstage();
     chat.classList.remove('is-leaving');
     replay(phone.querySelector('.chat__head'), 'is-swapping');
     avatar.textContent = c.sigla;
@@ -339,12 +348,10 @@ const ICONES = {
             await sleep(300);
             await customer(p.opcoes[p.escolha], p.horaEscolha || p.hora);
           }
-        } else if (p.sistema) {
-          await sleep(900);
-          add(el('p', 'chat__system', p.sistema));
         } else if (p.aviso) {
-          await sleep(800);
-          add(notice(p));
+          await sleep(600);
+          showBackstage(p);
+          await sleep(900);
         }
       }
       await sleep(5000);
