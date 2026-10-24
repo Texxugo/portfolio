@@ -177,6 +177,25 @@ const ICONES = {
   typing.className = 'typing';
   typing.innerHTML = '<i></i><i></i><i></i>';
 
+  // Barra de digitação do cliente (só na versão animada)
+  const composer = document.createElement('div');
+  composer.className = 'composer';
+  composer.setAttribute('aria-hidden', 'true');
+  composer.innerHTML = `
+    <span class="composer__field"><span class="composer__text"></span><span class="composer__placeholder">Mensagem</span></span>
+    <span class="composer__btn">
+      <svg class="composer__mic" viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg>
+      <svg class="composer__send" viewBox="0 0 24 24"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
+    </span>`;
+  const composerText = composer.querySelector('.composer__text');
+  const composerBtn = composer.querySelector('.composer__btn');
+  if (!reduce) phone.querySelector('.phone__screen').append(composer);
+  const clearComposer = () => {
+    composerText.textContent = '';
+    composer.classList.remove('has-text');
+    composerBtn.classList.remove('is-press');
+  };
+
   // Botões para escolher o exemplo
   const tabs = document.createElement('div');
   tabs.className = 'chat__tabs';
@@ -206,7 +225,7 @@ const ICONES = {
     const ticks = el('span', read ? 'ticks' : 'ticks is-sent', read ? '✓✓' : '✓');
     meta.append(ticks);
     m.append(meta);
-    return { m, read: () => { ticks.className = 'ticks'; ticks.textContent = '✓✓'; } };
+    return { m, read: () => { ticks.className = 'ticks is-read'; ticks.textContent = '✓✓'; } };
   }
 
   function bubbleIn(p) {
@@ -236,8 +255,17 @@ const ICONES = {
 
   const notice = (p) => el('p', 'chat__event', `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONES[p.icone]}"/></svg>${p.aviso}`);
 
+  const replay = (node, cls) => {
+    node.classList.remove(cls);
+    void node.offsetWidth; // reinicia a animação
+    node.classList.add(cls);
+  };
+
   function setScene(i) {
     const c = CENAS[i];
+    clearComposer();
+    chat.classList.remove('is-leaving');
+    replay(phone.querySelector('.chat__head'), 'is-swapping');
     avatar.textContent = c.sigla;
     nome.textContent = c.nome;
     status.textContent = 'Conta comercial · online';
@@ -272,7 +300,22 @@ const ICONES = {
       while (paused && my === token) await new Promise((r) => setTimeout(r, 250));
       if (my !== token) throw STOP;
     };
-    const customer = async (text, hora) => {
+    // Digita letra por letra na barra de mensagem e toca em enviar
+    const typeOut = async (text) => {
+      composer.classList.add('has-text');
+      const delay = Math.min(45, 1800 / text.length);
+      for (const ch of text) {
+        composerText.textContent += ch;
+        composerText.scrollLeft = composerText.scrollWidth; // mostra o fim do texto
+        await sleep(delay);
+      }
+      await sleep(350);
+      composerBtn.classList.add('is-press');
+      await sleep(160);
+      clearComposer();
+    };
+    const customer = async (text, hora, typed) => {
+      if (typed) await typeOut(text);
       const b = bubbleOut(text, hora, false);
       add(b.m);
       await sleep(500);
@@ -287,12 +330,16 @@ const ICONES = {
     };
 
     try {
+      if (chat.childElementCount > 1) {
+        chat.classList.add('is-leaving');
+        await sleep(350);
+      }
       setScene(i);
       await sleep(500);
       for (const p of CENAS[i].passos) {
         if (p.cliente) {
-          await sleep(700);
-          await customer(p.cliente, p.hora);
+          await sleep(500);
+          await customer(p.cliente, p.hora, true);
         } else if (p.robo) {
           await sleep(300);
           await botTyping(p.pensando || 1100);
