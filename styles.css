@@ -1,24 +1,25 @@
-/* Fixallis — accent is the logo blue (#016ECB).
+/* Fixallis — colors follow the business card (blue #2C6BB7, ink #191E28).
    Layout: the page reads like a business chat — a live conversation in the hero,
    then calm alternating bands. Bold moment = the phone demo; the rest stays quiet. */
 :root {
-  --bg: #F3F6FA;
-  --tint: #E8EEF6;
+  /* Colors from the business card */
+  --bg: #FFFFFF;
+  --tint: #EEF3FA;
   --surface: #FFFFFF;
-  --ink: #0B1B2E;
-  --muted: #4A5A6E;
-  --line: #D4DDE8;
-  --brand: #0164C2;
-  --brand-soft: #DCEAF9;
-  --go: #016ECB;
+  --ink: #191E28;
+  --muted: #5E6A80;
+  --line: #CAD9EC;
+  --brand: #2C6BB7;
+  --brand-soft: #E3ECF7;
+  --go: #2C6BB7;
   --go-ink: #FFFFFF;
-  --frame: #0B1B2E;
+  --frame: #191E28;
   --chat-bg: #E9EEF3;
   --bubble-in: #FFFFFF;
   --bubble-out: #D9FDD3;
   --tick: #2B9ED8;
   --error: #B4380B;
-  --shadow: 0 1px 2px rgb(11 27 46 / .06), 0 8px 24px rgb(11 27 46 / .08);
+  --shadow: 0 1px 2px rgb(25 30 40 / .06), 0 8px 24px rgb(25 30 40 / .08);
 
   --font-display: "Funnel Display", "Segoe UI", system-ui, sans-serif;
   --font-body: "Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -32,21 +33,22 @@
   --step-4: clamp(2.25rem, 1.5rem + 3.2vw, 3.75rem);
 
   --radius: 14px;
+  --m: 1; /* movement scale for the IT illustrations: 0 when the system asks for less motion */
   --header-h: 64px;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0A121C;
-    --tint: #0E1824;
-    --surface: #121F2E;
-    --ink: #E3EBF5;
-    --muted: #9AAABD;
-    --line: #213145;
-    --brand: #5AA8F2;
-    --brand-soft: #10263D;
-    --go: #016ECB;
+    --bg: #0D121B;
+    --tint: #111925;
+    --surface: #161F2D;
+    --ink: #E6EBF3;
+    --muted: #9AA6B8;
+    --line: #24324A;
+    --brand: #8AB0E8;
+    --brand-soft: #16253B;
+    --go: #2C6BB7;
     --go-ink: #FFFFFF;
     --frame: #000000;
     --chat-bg: #0A1119;
@@ -59,15 +61,15 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0A121C;
-  --tint: #0E1824;
-  --surface: #121F2E;
-  --ink: #E3EBF5;
-  --muted: #9AAABD;
-  --line: #213145;
-  --brand: #5AA8F2;
-  --brand-soft: #10263D;
-  --go: #016ECB;
+  --bg: #0D121B;
+  --tint: #111925;
+  --surface: #161F2D;
+  --ink: #E6EBF3;
+  --muted: #9AA6B8;
+  --line: #24324A;
+  --brand: #8AB0E8;
+  --brand-soft: #16253B;
+  --go: #2C6BB7;
   --go-ink: #FFFFFF;
   --frame: #000000;
   --chat-bg: #0A1119;
@@ -790,6 +792,371 @@ section[id] { scroll-margin-top: 120px; }
 .faq details[open] summary::after { rotate: 45deg; }
 .faq details p { padding: 0 0 22px; color: var(--muted); max-width: 66ch; }
 
+/* Jump links in a page heading */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.jump a {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .9375rem;
+}
+.jump a:hover { border-color: var(--brand); color: var(--brand); }
+
+/* IT support: Hardware / Software / Sistemas */
+.it-groups { display: grid; gap: 20px; }
+@media (min-width: 900px) { .it-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.it-group {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.it-group__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 700 .875rem/1 var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.it-group__icon {
+  width: 38px; height: 38px;
+  flex: none;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--brand-soft);
+}
+.it-group__icon svg { width: 20px; height: 20px; fill: currentColor; }
+.it-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.it-list li { display: grid; gap: 2px; padding-left: 14px; border-left: 2px solid var(--brand-soft); }
+.it-list strong { font-weight: 600; }
+.it-list span { color: var(--muted); font-size: .9375rem; }
+.it-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 32px; }
+.it-cta p { color: var(--muted); }
+
+/* IT illustrations (servicos.html): looping SVG scenes at the top of each card */
+.it-anim {
+  position: relative;
+  aspect-ratio: 300 / 140;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  overflow: hidden;
+}
+.it-anim svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.it-anim svg * { transform-box: fill-box; transform-origin: center; }
+.it-anim .k-box { fill: var(--surface); stroke: var(--brand); stroke-width: 2; }
+.it-anim .k-thin { stroke-width: 1.5; }
+.it-anim .k-tint { fill: var(--tint); }
+.it-anim .k-soft { fill: var(--brand-soft); }
+.it-anim .k-surface { fill: var(--surface); }
+.it-anim .k-brand { fill: var(--brand); }
+.it-anim .k-ink { fill: var(--ink); opacity: .85; }
+.it-anim .k-strong { opacity: 1; }
+.it-anim .k-muted { fill: var(--muted); }
+.it-anim .k-faint { opacity: .4; }
+.it-anim .k-half { opacity: .45; }
+.it-anim .k-trace { fill: none; stroke: var(--line); stroke-width: 1; }
+.it-anim .k-fan, .it-anim .k-grille { fill: none; stroke: var(--surface); stroke-width: 1.5; }
+.it-anim .k-fan { stroke: var(--brand-soft); }
+.it-anim .k-line-fill { fill: var(--line); }
+.it-anim .k-frame { fill: none; stroke: var(--line); stroke-width: 1.5; }
+
+/* Hardware: parts fly into the case one by one, then leave */
+.hw-part { animation: hw-part 16s ease-in-out infinite both; animation-delay: var(--d); }
+@keyframes hw-part {
+  0% { opacity: 0; transform: translate(calc(var(--dx) * var(--m)), calc(var(--dy) * var(--m))); }
+  4.4% { opacity: 1; transform: scale(calc(1 + .14 * var(--m))); }
+  9%, 55% { opacity: 1; transform: none; }
+  60%, 100% { opacity: 0; transform: translate(calc(var(--dx) * var(--m)), calc(var(--dy) * var(--m))); }
+}
+/* Spin around the cooler's center (252, 36), not the blades' bounding box */
+.hw-spin { animation: spin .9s linear infinite; }
+.it-anim svg .hw-spin { transform-box: view-box; transform-origin: 252px 36px; }
+.it-anim .hw-spin * { transform-box: view-box; transform-origin: 0 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.hw-labels { position: absolute; left: 5%; top: 50%; width: 42%; height: 2.2em; margin: -1.1em 0 0; }
+.hw-labels span {
+  position: absolute;
+  left: 0; top: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--brand);
+  font: 600 .8125rem/1.3 var(--font-body);
+  white-space: nowrap;
+  animation: hw-label 16s ease-out infinite both;
+  animation-delay: var(--d);
+}
+.hw-labels .is-done { background: var(--brand); border-color: var(--brand); color: var(--go-ink); }
+@keyframes hw-label {
+  0%, 1.5% { opacity: 0; transform: translateY(calc(6px * var(--m))); }
+  2.5%, 6.5% { opacity: 1; transform: none; }
+  7.5%, 100% { opacity: 0; transform: none; }
+}
+
+/* Software: one monitor walks through the card's four services (16s loop) */
+.sf-status, .sf-wipe0, .sf-wipe1, .sf-wipe2, .sf-wipe3, .sf-wipe4, .sf-wipe5, .sf-app0, .sf-app1, .sf-app2, .sf-app3, .sf-file0, .sf-file1, .sf-file2, .sf-block0, .sf-block1, .sf-block2, .sf-block3, .sf-hl { animation-duration: 16s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-fill-mode: both; }
+.sf-hl-cloud { animation-name: sf-hl-cloud; }
+.sf-hl-disk { animation-name: sf-hl-disk; }
+.sf-st0 { animation-name: sf-st0; }
+.sf-st1 { animation-name: sf-st1; }
+.sf-st2 { animation-name: sf-st2; }
+.sf-st3 { animation-name: sf-st3; }
+.sf-wipe0 { animation-name: sf-wipe0; }
+.sf-wipe1 { animation-name: sf-wipe1; }
+.sf-wipe2 { animation-name: sf-wipe2; }
+.sf-wipe3 { animation-name: sf-wipe3; }
+.sf-wipe4 { animation-name: sf-wipe4; }
+.sf-wipe5 { animation-name: sf-wipe5; }
+.sf-app0 { animation-name: sf-app0; }
+.sf-app1 { animation-name: sf-app1; }
+.sf-app2 { animation-name: sf-app2; }
+.sf-app3 { animation-name: sf-app3; }
+.sf-file0 { animation-name: sf-file0; }
+.sf-file1 { animation-name: sf-file1; }
+.sf-file2 { animation-name: sf-file2; }
+.sf-block0 { animation-name: sf-block0; }
+.sf-block1 { animation-name: sf-block1; }
+.sf-block2 { animation-name: sf-block2; }
+.sf-block3 { animation-name: sf-block3; }
+@keyframes sf-st0 {
+  0.00% { opacity: 0; transform: none; }
+  1.56% { opacity: 1; transform: none; }
+  23.12% { opacity: 1; transform: none; }
+  24.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-st1 {
+  0.00% { opacity: 0; transform: none; }
+  25.00% { opacity: 0; transform: none; }
+  26.56% { opacity: 1; transform: none; }
+  48.12% { opacity: 1; transform: none; }
+  49.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-st2 {
+  0.00% { opacity: 0; transform: none; }
+  50.00% { opacity: 0; transform: none; }
+  51.56% { opacity: 1; transform: none; }
+  73.12% { opacity: 1; transform: none; }
+  74.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-st3 {
+  0.00% { opacity: 0; transform: none; }
+  75.00% { opacity: 0; transform: none; }
+  76.56% { opacity: 1; transform: none; }
+  98.12% { opacity: 1; transform: none; }
+  99.69% { opacity: 0; transform: none; }
+}
+@keyframes sf-wipe0 {
+  0.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  1.56% { opacity: 1; transform: none; }
+  4.38% { opacity: 1; transform: none; }
+  6.25% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  100.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+}
+@keyframes sf-wipe1 {
+  0.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  1.56% { opacity: 1; transform: none; }
+  6.88% { opacity: 1; transform: none; }
+  8.75% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  100.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+}
+@keyframes sf-wipe2 {
+  0.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  1.56% { opacity: 1; transform: none; }
+  9.38% { opacity: 1; transform: none; }
+  11.25% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  100.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+}
+@keyframes sf-wipe3 {
+  0.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  1.56% { opacity: 1; transform: none; }
+  11.88% { opacity: 1; transform: none; }
+  13.75% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  100.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+}
+@keyframes sf-wipe4 {
+  0.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  1.56% { opacity: 1; transform: none; }
+  14.37% { opacity: 1; transform: none; }
+  16.25% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  100.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+}
+@keyframes sf-wipe5 {
+  0.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  1.56% { opacity: 1; transform: none; }
+  16.88% { opacity: 1; transform: none; }
+  18.75% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+  100.00% { opacity: 0; transform: scale(calc(1 - .7 * var(--m))); }
+}
+@keyframes sf-app0 {
+  0.00% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  27.50% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  29.38% { opacity: 1; transform: none; }
+  48.12% { opacity: 1; transform: none; }
+  49.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-app1 {
+  0.00% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  31.88% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  33.75% { opacity: 1; transform: none; }
+  48.12% { opacity: 1; transform: none; }
+  49.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-app2 {
+  0.00% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  36.25% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  38.12% { opacity: 1; transform: none; }
+  48.12% { opacity: 1; transform: none; }
+  49.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-app3 {
+  0.00% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  40.62% { opacity: 0; transform: translateY(calc(8px * var(--m))) scale(calc(1 - .4 * var(--m))); }
+  42.50% { opacity: 1; transform: none; }
+  48.12% { opacity: 1; transform: none; }
+  49.69% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-file0 {
+  0.00% { opacity: 0; transform: none; }
+  50.00% { opacity: 0; transform: none; }
+  51.56% { opacity: 1; transform: none; }
+  53.12% { opacity: 1; transform: none; }
+  58.13% { opacity: 1; transform: translate(calc(170px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+  59.38% { opacity: 0; transform: translate(calc(170px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+  100.00% { opacity: 0; transform: translate(calc(170px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+}
+@keyframes sf-file1 {
+  0.00% { opacity: 0; transform: none; }
+  50.00% { opacity: 0; transform: none; }
+  51.56% { opacity: 1; transform: none; }
+  59.38% { opacity: 1; transform: none; }
+  64.38% { opacity: 1; transform: translate(calc(144px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+  65.62% { opacity: 0; transform: translate(calc(144px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+  100.00% { opacity: 0; transform: translate(calc(144px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+}
+@keyframes sf-file2 {
+  0.00% { opacity: 0; transform: none; }
+  50.00% { opacity: 0; transform: none; }
+  51.56% { opacity: 1; transform: none; }
+  65.62% { opacity: 1; transform: none; }
+  70.62% { opacity: 1; transform: translate(calc(118px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+  71.88% { opacity: 0; transform: translate(calc(118px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+  100.00% { opacity: 0; transform: translate(calc(118px * var(--m)), calc(-24px * var(--m))) scale(calc(1 - .5 * var(--m))); }
+}
+@keyframes sf-block0 {
+  0.00% { opacity: 0; transform: none; }
+  77.50% { opacity: 0; transform: none; }
+  78.12% { opacity: 1; transform: none; }
+  81.56% { opacity: 1; transform: translate(calc(58px * var(--m)), 0); }
+  82.50% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+  100.00% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+}
+@keyframes sf-block1 {
+  0.00% { opacity: 0; transform: none; }
+  82.19% { opacity: 0; transform: none; }
+  82.81% { opacity: 1; transform: none; }
+  86.25% { opacity: 1; transform: translate(calc(58px * var(--m)), 0); }
+  87.19% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+  100.00% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+}
+@keyframes sf-block2 {
+  0.00% { opacity: 0; transform: none; }
+  86.88% { opacity: 0; transform: none; }
+  87.50% { opacity: 1; transform: none; }
+  90.94% { opacity: 1; transform: translate(calc(58px * var(--m)), 0); }
+  91.88% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+  100.00% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+}
+@keyframes sf-block3 {
+  0.00% { opacity: 0; transform: none; }
+  91.56% { opacity: 0; transform: none; }
+  92.19% { opacity: 1; transform: none; }
+  95.62% { opacity: 1; transform: translate(calc(58px * var(--m)), 0); }
+  96.56% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+  100.00% { opacity: 0; transform: translate(calc(58px * var(--m)), 0); }
+}
+@keyframes sf-hl-cloud {
+  0.00% { opacity: 0; transform: none; }
+  50.00% { opacity: 0; transform: none; }
+  51.88% { opacity: 1; transform: none; }
+  73.12% { opacity: 1; transform: none; }
+  75.00% { opacity: 0; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+@keyframes sf-hl-disk {
+  0.00% { opacity: 0; transform: none; }
+  75.00% { opacity: 0; transform: none; }
+  76.88% { opacity: 1; transform: none; }
+  98.12% { opacity: 1; transform: none; }
+  100.00% { opacity: 0; transform: none; }
+}
+.it-anim .sf-status { font-size: 9.5px; font-weight: 700; fill: var(--ink); }
+.it-anim .sf-tag { font-family: var(--font-mono); font-size: 8px; fill: var(--muted); text-anchor: middle; }
+.it-anim .sf-green { fill: #2E9E6B; }
+.it-anim .sf-check-bg { fill: var(--surface); stroke: #2E9E6B; stroke-width: 1.2; }
+.it-anim .sf-check { fill: none; stroke: #2E9E6B; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.it-anim .sf-hl { fill: none; stroke: var(--brand); stroke-width: 3; }
+.it-anim .sf-platter { stroke: var(--brand); }
+.sf-progress { transform-origin: left center; animation: sf-progress 4s linear infinite; }
+@keyframes sf-progress { 0% { transform: scaleX(0); } 85%, 100% { transform: scaleX(1); } }
+
+/* Sistemas, second scene: code scrolls up in the editor while the app screen builds */
+.it-anim .k-editor { fill: #191E28; }
+.it-anim .c1 { fill: #8AB0E8; }
+.it-anim .c2 { fill: #E6EBF3; opacity: .8; }
+.it-anim .c3 { fill: #7FD1AE; }
+.it-anim .c4 { fill: #9AA6B8; }
+.sw-code { animation: sw-scroll 4s linear infinite; }
+@keyframes sw-scroll { to { transform: translateY(calc(-88px * var(--m))); } }
+.it-anim .sw-caret { fill: #E6EBF3; animation: caret 1s steps(1) infinite; }
+.sw-bit { animation: sw-bit 1.2s ease-in-out infinite both; animation-delay: var(--d); }
+@keyframes sw-bit {
+  0% { opacity: 0; transform: none; }
+  20%, 80% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(calc(30px * var(--m))); }
+}
+.sw-piece { animation: sw-piece 22s ease-out infinite both; animation-delay: var(--d); }
+@keyframes sw-piece {
+  0% { opacity: 0; transform: translateY(calc(16px * var(--m))) scale(calc(1 - .1 * var(--m))); }
+  2.73%, 28.2% { opacity: 1; transform: none; }
+  30.45%, 100% { opacity: 0; transform: translateY(calc(-8px * var(--m))); }
+}
+
+/* Sistemas alternates two scenes in one 22s loop: sheet first, then code to app */
+.sc-a { animation: scene-a 22s linear infinite; }
+.sc-b { animation: scene-b 22s linear infinite; }
+@keyframes scene-a { 0%, 48% { opacity: 1; } 50%, 98% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes scene-b { 0%, 48% { opacity: 0; } 50%, 98% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Sistemas, first scene: values rise into the sheet crooked, then snap into line */
+.it-anim text { font-family: var(--font-body); font-size: 10px; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.it-anim .sh-head text { font-family: var(--font-mono); font-size: 8px; fill: var(--muted); text-anchor: middle; }
+.it-anim .sh-title text, .it-anim .sh-bold { font-weight: 700; }
+.it-anim .sh-sum { fill: var(--brand); }
+.sh-cell { animation: sh-cell 22s ease-out infinite both; animation-delay: var(--d); }
+@keyframes sh-cell {
+  0% { opacity: 0; transform: translate(calc(var(--dx) * var(--m)), calc(26px * var(--m))) rotate(calc(var(--r) * var(--m))); }
+  2% { opacity: 1; transform: translate(calc(var(--dx) * var(--m)), 0) rotate(calc(var(--r) * var(--m))); }
+  4%, 30% { opacity: 1; transform: none; }
+  32.5%, 100% { opacity: 0; transform: none; }
+}
+
 /* Home: links to the other pages */
 .pages { display: grid; gap: 16px; }
 @media (min-width: 820px) { .pages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
@@ -902,5 +1269,8 @@ main > .contact:only-child { flex-grow: 1; display: grid; align-content: center;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  /* The IT illustrations keep playing, but only fade (see --m) */
+  :root { --m: 0; }
+  *:not(.it-anim *), *:not(.it-anim *)::before, *:not(.it-anim *)::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .hw-spin, .sw-code { animation: none !important; }
 }

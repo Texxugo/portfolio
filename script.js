@@ -12,10 +12,11 @@ const waLink = (text) =>
 
 // Links de WhatsApp em todo o site
 document.querySelectorAll('[data-wa]').forEach((el) => {
+  // data-msg: mensagem própria do botão; data-plan: botão de um plano
   const plan = el.dataset.plan;
-  const text = plan
+  const text = el.dataset.msg || (plan
     ? `Olá! Tenho interesse no plano ${plan}. Pode me explicar como funciona?`
-    : CONFIG.mensagemPadrao;
+    : CONFIG.mensagemPadrao);
   el.href = waLink(text);
 });
 
