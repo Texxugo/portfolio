@@ -10,6 +10,28 @@ const CONFIG = {
 const waLink = (text) =>
   `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
 
+// Elementos com .reveal aparecem ao entrar na tela, um depois do outro
+(function reveal() {
+  const els = [...document.querySelectorAll('.reveal')];
+  els.forEach((el) => {
+    const group = [...el.parentElement.children].filter((c) => c.classList.contains('reveal'));
+    el.style.setProperty('--i', group.indexOf(el));
+  });
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('is-in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  els.forEach((el) => io.observe(el));
+})();
+
 // Links de WhatsApp em todo o site
 document.querySelectorAll('[data-wa]').forEach((el) => {
   // data-msg: mensagem própria do botão; data-plan: botão de um plano

@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -41,9 +42,8 @@
   <!-- TÍTULO DA PÁGINA -->
   <section class="page-head">
     <div class="wrap page-head__inner">
-      <p class="eyebrow">Exemplos</p>
       <h1>Fluxos que eu construo</h1>
-      <p class="lead">Projetos de demonstração para tipos de negócio comuns. Cada um mostra o caminho da conversa, da primeira mensagem até o resultado.</p>
+      <p class="lead">Da primeira mensagem ao resultado.</p>
     </div>
   </section>
 
@@ -54,43 +54,43 @@
         <article class="case reveal">
           <p class="case__kind">Clínica e consultório</p>
           <h3>Agenda que se preenche sozinha</h3>
-          <ol class="flow">
-            <li>Cliente manda “oi”</li>
-            <li>Escolhe o procedimento</li>
-            <li>Vê horários livres</li>
-            <li>Confirma</li>
-            <li class="flow__end">Salvo na agenda + lembrete 24h antes</li>
+          <ol class="flow motion">
+            <li style="--i:0">Cliente manda “oi”</li>
+            <li style="--i:1">Escolhe o procedimento</li>
+            <li style="--i:2">Vê horários livres</li>
+            <li style="--i:3">Confirma</li>
+            <li class="flow__end" style="--i:4">Salvo na agenda + lembrete 24h antes</li>
           </ol>
         </article>
         <article class="case reveal">
           <p class="case__kind">Restaurante e delivery</p>
           <h3>Pedido completo sem digitar</h3>
-          <ol class="flow">
-            <li>Cliente pede o cardápio</li>
-            <li>Escolhe itens e adicionais</li>
-            <li>Informa endereço</li>
-            <li>Escolhe Pix ou cartão</li>
-            <li class="flow__end">Pedido chega pronto para a cozinha</li>
+          <ol class="flow motion">
+            <li style="--i:0">Cliente pede o cardápio</li>
+            <li style="--i:1">Escolhe itens e adicionais</li>
+            <li style="--i:2">Informa endereço</li>
+            <li style="--i:3">Escolhe Pix ou cartão</li>
+            <li class="flow__end" style="--i:4">Pedido chega pronto para a cozinha</li>
           </ol>
         </article>
         <article class="case reveal">
           <p class="case__kind">Loja online</p>
           <h3>“Cadê meu pedido?” resolvido</h3>
-          <ol class="flow">
-            <li>Cliente pergunta do pedido</li>
-            <li>Informa o número ou CPF</li>
-            <li>Robô consulta a loja</li>
-            <li class="flow__end">Status e rastreio na hora</li>
+          <ol class="flow motion">
+            <li style="--i:0">Cliente pergunta do pedido</li>
+            <li style="--i:1">Informa o número ou CPF</li>
+            <li style="--i:2">Robô consulta a loja</li>
+            <li class="flow__end" style="--i:3">Status e rastreio na hora</li>
           </ol>
         </article>
         <article class="case reveal">
           <p class="case__kind">Imobiliária e corretor</p>
           <h3>Só chega cliente qualificado</h3>
-          <ol class="flow">
-            <li>Interessado chega pelo anúncio</li>
-            <li>Robô pergunta bairro, faixa de preço e prazo</li>
-            <li>Registra na planilha</li>
-            <li class="flow__end">Corretor recebe o resumo e assume</li>
+          <ol class="flow motion">
+            <li style="--i:0">Interessado chega pelo anúncio</li>
+            <li style="--i:1">Robô pergunta bairro, faixa de preço e prazo</li>
+            <li style="--i:2">Registra na planilha</li>
+            <li class="flow__end" style="--i:3">Corretor recebe o resumo e assume</li>
           </ol>
         </article>
       </div>
@@ -101,7 +101,6 @@
   <section class="next" aria-label="Próximo passo">
     <div class="wrap next__inner">
       <div class="next__copy">
-        <p class="eyebrow">Próximo passo</p>
         <h2>Quanto custa colocar isso no ar?</h2>
       </div>
       <div class="next__ctas">
