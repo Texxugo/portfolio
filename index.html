@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -43,8 +44,8 @@
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <p class="eyebrow">Automação de WhatsApp para pequenos grandes negócios</p>
-        <h1>Seu WhatsApp respondendo, agendando e vendendo enquanto você trabalha.</h1>
-        <p class="lead">Eu monto robôs de atendimento na API oficial do WhatsApp, ligados à sua agenda, planilha ou loja. Seu cliente recebe resposta em segundos, a qualquer hora, e você só entra na conversa quando faz diferença.</p>
+        <h1><span class="sr-only">Seu WhatsApp respondendo, agendando e vendendo enquanto você trabalha.</span><span aria-hidden="true">Seu WhatsApp <span class="rotator motion"><span>respondendo</span><span>agendando</span><span>vendendo</span></span> enquanto você trabalha.</span></h1>
+        <p class="lead">Robôs de atendimento na API oficial do WhatsApp, ligados à sua agenda, planilha ou loja.</p>
         <div class="hero__ctas">
           <a class="btn btn--go" data-wa href="https://wa.me/" target="_blank" rel="noopener">
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
@@ -53,9 +54,9 @@
           <a class="btn btn--ghost" href="exemplos.html">Ver exemplos</a>
         </div>
         <ul class="hero__facts">
-          <li><strong>Resposta em segundos</strong> no lugar de horas</li>
-          <li><strong>24 horas por dia</strong> inclusive fim de semana</li>
-          <li><strong>Passa para um humano</strong> quando o cliente pede</li>
+          <li>Resposta em segundos</li>
+          <li>24 horas por dia</li>
+          <li>Passa para um humano</li>
         </ul>
       </div>
 
@@ -112,33 +113,16 @@
   </section>
 
   <!-- DORES -->
-  <section class="section section--tint" aria-labelledby="dores-title">
+  <section class="section" aria-labelledby="dores-title">
     <div class="wrap">
       <header class="section__head">
-        <p class="eyebrow">O que acontece hoje</p>
         <h2 id="dores-title">Onde o atendimento manual perde clientes</h2>
       </header>
       <ul class="pains">
-        <li class="reveal">
-          <span class="pains__time">23:12</span>
-          <h3>Pergunta de preço fora do horário</h3>
-          <p>O cliente manda mensagem à noite, ninguém responde, e de manhã ele já fechou com o concorrente.</p>
-        </li>
-        <li class="reveal">
-          <span class="pains__time">todo dia</span>
-          <h3>As mesmas 10 perguntas</h3>
-          <p>Endereço, horário, formas de pagamento, prazo. Você digita tudo de novo, várias vezes por dia.</p>
-        </li>
-        <li class="reveal">
-          <span class="pains__time">segunda</span>
-          <h3>Cliente que esquece e falta</h3>
-          <p>Agenda no papel ou na memória, sem lembrete. O horário fica vazio e ninguém avisa.</p>
-        </li>
-        <li class="reveal">
-          <span class="pains__time">3 dias depois</span>
-          <h3>Orçamento sem retorno</h3>
-          <p>Você manda o orçamento, o cliente some, e falta tempo para chamar de novo no momento certo.</p>
-        </li>
+        <li class="reveal"><span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/><text class="ic-z" x="15" y="9">z</text><text class="ic-z ic-z2" x="18.5" y="5.5">z</text></svg></span><span>Ninguém responde à noite</span></li>
+        <li class="reveal"><span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><g class="ic-spin"><path d="M5 12a7 7 0 0 1 12-4.9M19 12a7 7 0 0 1-12 4.9"/><path d="M17 3.5v4h-4M7 20.5v-4h4"/></g></svg></span><span>As mesmas perguntas, todo dia</span></li>
+        <li class="reveal"><span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path class="ic-blink" d="M10 13l4 4M14 13l-4 4"/></svg></span><span>Cliente esquece e falta</span></li>
+        <li class="reveal"><span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path class="ic-hand" d="M12 12V7"/><path d="M12 12l3 2"/></svg></span><span>Orçamento fica sem retorno</span></li>
       </ul>
     </div>
   </section>
@@ -147,41 +131,38 @@
   <section class="section" aria-labelledby="explorar-title">
     <div class="wrap">
       <header class="section__head">
-        <p class="eyebrow">Por onde começar</p>
-        <h2 id="explorar-title">Veja o que dá para fazer no seu WhatsApp</h2>
+        <h2 id="explorar-title">Por onde começar</h2>
       </header>
       <div class="pages">
         <a class="page-card reveal" href="servicos.html">
-          <span class="page-card__kind">Serviços</span>
-          <h3>WhatsApp e suporte de TI</h3>
-          <p>Automação de atendimento, agendamento e pedidos, e também upgrade e montagem de PCs, formatação, backup, planilhas e sistemas sob medida.</p>
-          <span class="page-card__go">Ver serviços →</span>
+          <span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect class="ic-blink" x="13" y="13" width="7" height="7" rx="1.5"/></svg></span>
+          <h3>Serviços</h3>
+          <p>WhatsApp e suporte de TI</p>
+          <span class="page-card__go" aria-hidden="true">→</span>
         </a>
         <a class="page-card reveal" href="exemplos.html">
-          <span class="page-card__kind">Exemplos</span>
-          <h3>Fluxos prontos por tipo de negócio</h3>
-          <p>Clínica, restaurante, loja online e imobiliária: o caminho da conversa, da primeira mensagem ao resultado.</p>
-          <span class="page-card__go">Ver exemplos →</span>
+          <span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><g class="ic-dots"><circle cx="9" cy="10.5" r="1.1"/><circle cx="12" cy="10.5" r="1.1"/><circle cx="15" cy="10.5" r="1.1"/></g></svg></span>
+          <h3>Exemplos</h3>
+          <p>Conversas prontas por negócio</p>
+          <span class="page-card__go" aria-hidden="true">→</span>
         </a>
         <a class="page-card reveal" href="planos.html">
-          <span class="page-card__kind">Planos</span>
-          <h3>Preço fechado, sem surpresa</h3>
-          <p>Três planos com implantação e mensalidade, mais as respostas para as dúvidas mais comuns.</p>
-          <span class="page-card__go">Ver planos →</span>
+          <span class="ic-tile motion" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M3.5 12.5V4h8.5l8.5 8.5-8 8z"/><circle cx="8" cy="8.5" r="1.5"/></svg></span>
+          <h3>Planos</h3>
+          <p>Preço fechado, sem surpresa</p>
+          <span class="page-card__go" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- SOBRE -->
-  <section class="section section--tint" id="sobre" aria-labelledby="sobre-title">
+  <section class="section" id="sobre" aria-labelledby="sobre-title">
     <div class="wrap about">
-      <div class="about__mark" aria-hidden="true"><img src="assets/fixallis-mark.svg" alt="" width="75" height="119"></div>
-      <div class="about__text">
-        <p class="eyebrow">Quem faz</p>
-        <h2 id="sobre-title">Atendimento direto com quem constrói</h2>
-        <p>Sou desenvolvedor e trabalho com automação de atendimento para pequenos negócios. Você fala comigo do diagnóstico até a entrega, sem intermediário e sem pacote genérico.</p>
-        <p>Meu foco é que o robô pareça parte do seu negócio: fala do seu jeito, conhece suas regras e sabe a hora de chamar uma pessoa.</p>
+      <div class="about__mark motion reveal" aria-hidden="true"><svg viewBox="376 261 274 435" fill="none" stroke-linecap="round"><path d="M512 366V668" stroke-width="50"/><path d="M408 386L621 293" stroke-width="54"/><path d="M430 520L621 438" stroke-width="54"/></svg></div>
+      <div class="about__text reveal">
+        <h2 id="sobre-title">Você fala direto com quem constrói</h2>
+        <p>Do diagnóstico à entrega, sem intermediário e sem pacote genérico.</p>
       </div>
     </div>
   </section>
@@ -189,10 +170,8 @@
   <!-- CHAMADA -->
   <section class="section contact cta-band" aria-labelledby="cta-title">
     <div class="wrap">
-      <div class="contact__copy">
-        <p class="eyebrow">Contato</p>
+      <div class="contact__copy reveal">
         <h2 id="cta-title">Me conte sobre o seu negócio</h2>
-        <p>Responda três perguntas rápidas e a mensagem abre pronta no WhatsApp. Eu respondo no mesmo dia útil.</p>
         <a class="btn btn--light" href="contato.html">Começar agora</a>
       </div>
     </div>
