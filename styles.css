@@ -790,6 +790,56 @@ section[id] { scroll-margin-top: 120px; }
 .faq details[open] summary::after { rotate: 45deg; }
 .faq details p { padding: 0 0 22px; color: var(--muted); max-width: 66ch; }
 
+/* Jump links in a page heading */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.jump a {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .9375rem;
+}
+.jump a:hover { border-color: var(--brand); color: var(--brand); }
+
+/* IT support: Hardware / Software / Sistemas */
+.it-groups { display: grid; gap: 20px; }
+@media (min-width: 900px) { .it-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.it-group {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.it-group__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 700 .875rem/1 var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.it-group__icon {
+  width: 38px; height: 38px;
+  flex: none;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--brand-soft);
+}
+.it-group__icon svg { width: 20px; height: 20px; fill: currentColor; }
+.it-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.it-list li { display: grid; gap: 2px; padding-left: 14px; border-left: 2px solid var(--brand-soft); }
+.it-list strong { font-weight: 600; }
+.it-list span { color: var(--muted); font-size: .9375rem; }
+.it-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 32px; }
+.it-cta p { color: var(--muted); }
+
 /* Home: links to the other pages */
 .pages { display: grid; gap: 16px; }
 @media (min-width: 820px) { .pages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
