@@ -877,7 +877,9 @@ section[id] { scroll-margin-top: 120px; }
   9%, 55% { opacity: 1; transform: none; }
   60%, 100% { opacity: 0; transform: translate(calc(var(--dx) * var(--m)), calc(var(--dy) * var(--m))); }
 }
-.hw-spin { animation: spin .9s linear infinite; transform-box: view-box; transform-origin: 252px 36px; }
+/* Spin around the cooler's center (252, 36), not the blades' bounding box */
+.hw-spin { animation: spin .9s linear infinite; }
+.it-anim svg .hw-spin { transform-box: view-box; transform-origin: 252px 36px; }
 .it-anim .hw-spin * { transform-box: view-box; transform-origin: 0 0; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .hw-labels { position: absolute; left: 5%; top: 50%; width: 42%; height: 2.2em; margin: -1.1em 0 0; }
