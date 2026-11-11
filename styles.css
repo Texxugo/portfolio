@@ -1,24 +1,25 @@
-/* Fixallis — accent is the logo blue (#016ECB).
+/* Fixallis — colors follow the business card (blue #2C6BB7, ink #191E28).
    Layout: the page reads like a business chat — a live conversation in the hero,
    then calm alternating bands. Bold moment = the phone demo; the rest stays quiet. */
 :root {
-  --bg: #F3F6FA;
-  --tint: #E8EEF6;
+  /* Colors from the business card */
+  --bg: #FFFFFF;
+  --tint: #EEF3FA;
   --surface: #FFFFFF;
-  --ink: #0B1B2E;
-  --muted: #4A5A6E;
-  --line: #D4DDE8;
-  --brand: #0164C2;
-  --brand-soft: #DCEAF9;
-  --go: #016ECB;
+  --ink: #191E28;
+  --muted: #5E6A80;
+  --line: #CAD9EC;
+  --brand: #2C6BB7;
+  --brand-soft: #E3ECF7;
+  --go: #2C6BB7;
   --go-ink: #FFFFFF;
-  --frame: #0B1B2E;
+  --frame: #191E28;
   --chat-bg: #E9EEF3;
   --bubble-in: #FFFFFF;
   --bubble-out: #D9FDD3;
   --tick: #2B9ED8;
   --error: #B4380B;
-  --shadow: 0 1px 2px rgb(11 27 46 / .06), 0 8px 24px rgb(11 27 46 / .08);
+  --shadow: 0 1px 2px rgb(25 30 40 / .06), 0 8px 24px rgb(25 30 40 / .08);
 
   --font-display: "Funnel Display", "Segoe UI", system-ui, sans-serif;
   --font-body: "Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -38,15 +39,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0A121C;
-    --tint: #0E1824;
-    --surface: #121F2E;
-    --ink: #E3EBF5;
-    --muted: #9AAABD;
-    --line: #213145;
-    --brand: #5AA8F2;
-    --brand-soft: #10263D;
-    --go: #016ECB;
+    --bg: #0D121B;
+    --tint: #111925;
+    --surface: #161F2D;
+    --ink: #E6EBF3;
+    --muted: #9AA6B8;
+    --line: #24324A;
+    --brand: #8AB0E8;
+    --brand-soft: #16253B;
+    --go: #2C6BB7;
     --go-ink: #FFFFFF;
     --frame: #000000;
     --chat-bg: #0A1119;
@@ -59,15 +60,15 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0A121C;
-  --tint: #0E1824;
-  --surface: #121F2E;
-  --ink: #E3EBF5;
-  --muted: #9AAABD;
-  --line: #213145;
-  --brand: #5AA8F2;
-  --brand-soft: #10263D;
-  --go: #016ECB;
+  --bg: #0D121B;
+  --tint: #111925;
+  --surface: #161F2D;
+  --ink: #E6EBF3;
+  --muted: #9AA6B8;
+  --line: #24324A;
+  --brand: #8AB0E8;
+  --brand-soft: #16253B;
+  --go: #2C6BB7;
   --go-ink: #FFFFFF;
   --frame: #000000;
   --chat-bg: #0A1119;

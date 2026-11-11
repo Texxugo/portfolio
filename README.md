@@ -13,7 +13,7 @@ Páginas:
 Arquivos compartilhados:
 
 - `styles.css` — visual (cores, fontes, tema claro e escuro)
-- `assets/fixallis-mark.svg` — logo em vetor (azul `#016ECB`, fundo transparente)
+- `assets/fixallis-mark.svg` — logo em vetor (azul `#2C6BB7`, a cor do cartão de visita, fundo transparente)
 - `script.js` — número do WhatsApp, mensagem padrão, formulário e a animação do chat
 
 O menu do topo e o rodapé se repetem em cada página. Se adicionar ou renomear uma página, atualize os cinco arquivos.
